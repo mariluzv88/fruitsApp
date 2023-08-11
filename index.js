@@ -35,9 +35,9 @@ mongoose.connection.once("open", () => {
   });
 //   ​
 // routes
-// app.get('/',(req,res)=>{
-//     res.get("/fruits")
-// })
+app.get('/',(req,res)=>{
+    res.send("<h1> fruits list =  http://localhost:3000/fruits/</h1><h1>vegetable list = http://localhost:3000/veggies/ ")
+})
 //  get fruits
 app.get("/fruits", async (req, res) => {
     let someFruits = await  Fruit.find({})

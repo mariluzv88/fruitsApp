@@ -4,6 +4,7 @@ function Vshow(props) {
     const veggi = props.veggi
   return (
     <div>
+        <a href='/'>HOME</a><br/><br/>
         <h1>Show Page</h1>
 
         <h3>The {veggi.name} is {veggi.color}</h3>

@@ -5,7 +5,8 @@ function Index(props) {
   return (
     <div>
       <nav>
-        <a href='/fruits/new'>Creat A New Fruit</a>
+      <a href='/'>HOME</a><br/><br/>
+        <a href='/fruits/new'>Create A New Fruit</a>
       </nav>
         {fruits.map((fruit,i)=>{
             return(

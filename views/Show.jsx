@@ -4,6 +4,7 @@ function Show(props) {
     const fruit = props.fruit
   return (
     <div>
+      <a href='/'>HOME</a><br/><br/>
         <h1>Show Page</h1>
 
         <h3>The {fruit.name} is {fruit.color}</h3>

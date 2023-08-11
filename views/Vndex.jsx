@@ -5,6 +5,7 @@ function Vndex(props) {
   return (
     <div>
       <nav>
+      <a href='/'>HOME</a><br/><br/>
         <a href='/veggies/new'>Create A New Vegetable</a>
       </nav>
         {veggies.map((veg,i)=>{

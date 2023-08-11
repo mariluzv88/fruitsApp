@@ -3,6 +3,7 @@ import React from 'react'
 function New() {
   return (
     <div>
+      <a href='/'>HOME</a><br/><br/>
         Form
         <form action="/fruits" method="POST">
                  Name: <input type="text" name="name" /><br/>

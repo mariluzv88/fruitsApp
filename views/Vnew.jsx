@@ -3,6 +3,7 @@ import React from 'react'
 function Vnew() {
   return (
     <div>
+        <a href='/'>HOME</a><br/><br/>
         Form
         <form action="/veggies" method="POST">
                  Name: <input type="text" name="name" /><br/>

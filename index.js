@@ -8,6 +8,7 @@ const Fruit = require("./models/fruit.js");
 const fruits = require('./models/fruits')
 const Veggi = require("./models/veggi.js");
 const veggies = require('./models/veggies.js')
+const methodOverride = require('method-override');
 
 // middleware
 app.set("view engine", "jsx");
@@ -33,6 +34,7 @@ mongoose.connection.once('open', ()=> {
 mongoose.connection.once("open", () => {
     console.log("connected to mongo");
   });
+  app.use(methodOverride('_method'));
 //   ​
 // routes
 app.get('/',(req,res)=>{
@@ -86,7 +88,30 @@ app.get('/fruits/new',(req ,res) =>{
 app.get('/veggies/new',(req ,res) =>{
     res.render("Vnew")
 })
+// -------------delete
+app.delete('/fruits/:id', async (req,res)=>{
+  await Fruit.findByIdAndRemove(req.params.id)
+  res.redirect('/fruits')
+})
+// ------------put
+app.put('/fruits/:id', async (req, res)=>{
+  if(req.body.readyToEat === 'on'){
+      req.body.readyToEat = true;
+  } else {
+      req.body.readyToEat = false;
+  }
+   const updatedFruit = await Fruit.findByIdAndUpdate(req.params.id, req.body)
+     
+    
+      res.redirect(`/fruits/${req.params.id}`);
+  });
 
+// ----------edit
+app.get('/fruits/:id/edit', async (req,res)=>{
+const foundFruit = await Fruit.findById(req.params.id)
+console.log(foundFruit)
+res.render('Edit',{fruit:foundFruit})
+})
 // enter fruit / veggi
 app.get("/fruits/:id", async (req, res) => {
     const eachFruit = await Fruit.findById(req.params.id)
